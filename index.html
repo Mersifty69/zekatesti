@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Zekâ Testi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #111;
+      color: #0f0;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #0f0; }
+      to { text-shadow: 0 0 20px #0f0; }
+    }
+
+    #startBtn {
+      padding: 1rem 2rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      background-color: #0f0;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      transition: transform 0.2s;
+      max-width: 90%;
+    }
+
+    #startBtn:active {
+      transform: scale(0.95);
+    }
+
+    .msg {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: red;
+      max-width: 90%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HÜSEYİN İÇİN ZEKÂ TESTİ</h1>
+  <p>Lütfen sadece <b>1 kez</b> tıklayın. Gerçek zekâ testidir!</p>
+  <button id="startBtn">TIKLA</button>
+
+  <div class="msg" id="message"></div>
+
+  <script>
+    const messages = [
+      "Hmm... İlginç bir tıklama şekli.",
+      "2. kez mi tıkladın? Testi mahvediyorsun...",
+      "Bu kadar sabırsızsan IQ testine gerek yok reis.",
+      "3 kere tıklamak zekice bir davranış mı sence?",
+      "Sadece 1 dedik lan... Neyse devam et 🤡",
+      "Tıklamayı bırak, biz seni çoktan değerlendirdik.",
+      "Bu kadar tıklamak... Hüseyin misin? 😬",
+      "Zekâ testi mi? Seninki sabır testi olmuş kanka.",
+      "Her tıklamada IQ puanın düşüyor şuan haberin olsun.",
+      "Tebrikler. Zekân şu an sandalye seviyesinde.",
+      "Zekânı gömüyoruz... Huzur içinde yat 🧠💀"
+    ];
+
+    let count = 0;
+    const btn = document.getElementById("startBtn");
+    const msg = document.getElementById("message");
+
+    function handleClick() {
+      msg.textContent = messages[count] || "DUR ARTIK AMİNOGLU";
+      count++;
+    }
+
+    // Hem dokunma hem tıklama desteği
+    btn.addEventListener("click", handleClick);
+    btn.addEventListener("touchstart", handleClick);
+  </script>
+
+</body>
+</html>
